@@ -36,3 +36,8 @@ void quicksort(int*v, int inicio, int fim){
      }
 }     
            
+void imprimeVetor(int vetor){
+  for(i=0;i<MAX;i++){
+    printf("[%d] = %d", i, lista[i]);
+  }
+}
