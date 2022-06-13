@@ -16,10 +16,8 @@ int main(){
   }
   
   quicksort(lista, inicio, fim);
+  imprimeVetor(lista);
   
-  for(i=0;i<MAX;i++){
-    printf("%d", lista[i]);
-  }
 puts("");
 free(lista);
 
