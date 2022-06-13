@@ -1,0 +1,28 @@
+#include "Quicksort_bbt.c"
+
+int main(){
+  
+  int* lista, i;
+  int inicio, fim;
+
+  inicio = 0;
+  fim = MAX -1;
+
+  lista = (int*) malloc (MAX * sizeof(int));
+
+  for(i=0; i<MAX; i++){
+    printf("Entre com o valor da posicao [%d]:", i);
+    scanf("%d ", &lista[i]);
+  }
+  
+  quicksort(lista, inicio, fim);
+  
+  for(i=0;i<MAX;i++){
+    printf("%d", lista[i]);
+  }
+puts("");
+free(lista);
+
+return 0;
+  
+}
