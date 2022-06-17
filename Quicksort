@@ -53,14 +53,14 @@ int main() {
     
   printf("\n----- Preencha o vetor -----\n");
   
-  for(i = 0; i<MAX; i++){
+  for(i = 1; i<MAX+1; i++){
     printf("Digite um valor: ");
     scanf("%d", &vet[i]);
   }
   
-  quicksort(vet, 0, MAX);
+  quicksort(vet, 1, MAX);
 
-  for (i = 0; i < 20; i++) {
+  for (i = 1; i < 20; i++) {
     printf("%d ", vet[i]);
   }
 return 0;
