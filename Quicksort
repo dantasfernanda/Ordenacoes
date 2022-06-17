@@ -1,69 +1,67 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void troca(int *v, int indice, int indice2)
-{
-    int aux;
+void troca(int *v, int indice, int indice2) {
+  int aux;
 
-    aux = v[indice];
-    v[indice] = v[indice2];
-    v[indice2] = aux;
+  aux = v[indice];
+  v[indice] = v[indice2];
+  v[indice2] = aux;
 }
 
-int particiona(int *v, int inicio, int fim)
-{
-    int pivo = v[inicio];
-    int esq  = inicio;
-    int dir = fim;
+int particiona(int *v, int inicio, int fim) {
+  int pivo = v[inicio];
+  int esq = inicio;
+  int dir = fim;
 
-    while(esq < dir)
-    {
-        while(v[dir] > pivo)
-        {
-            dir--;
-        }
-        while(v[esq] <= pivo)
-        {
-            esq++;
-        }
-
-        if(esq<dir)
-        {
-            troca(v, esq, dir);
-        }
+  while (esq < dir) {
+    while (v[dir] > pivo) {
+      dir--;
+    }
+    while (v[esq] <= pivo) {
+      esq++;
     }
 
-    v[inicio] = v[dir];
-    v[dir] = pivo;
-
-    return dir;
-
-}
-
-void quicksort(int *v, int inicio, int fim)
-{
-    int pivo;
-
-    if(inicio<fim)
-    {
-        pivo = particiona(v, inicio, fim);
-        quicksort(v, inicio, pivo-1);
-        quicksort(v, pivo+1, fim);
+    if (esq < dir) {
+      troca(v, esq, dir);
     }
+  }
 
+  v[inicio] = v[dir];
+  v[dir] = pivo;
+
+  return dir;
 }
 
-main(int argc, char **argv)
-{
-    int v[20] = {1,1,1,1,1,2,3,4,4,4,5};
+void quicksort(int *v, int inicio, int fim) {
+  int pivo;
 
-    quicksort(v, 0, 19);
-
-    int i;
-
-    for(i = 0; i < 20; i++)
-    {
-        printf("%d ", v[i]);
-    }
+  if (inicio < fim) {
+    pivo = particiona(v, inicio, fim);
+    quicksort(v, inicio, pivo - 1);
+    quicksort(v, pivo + 1, fim);
+  }
 }
 
+int main() {
+
+  
+  int i, MAX, vet[MAX];
+  
+  printf("Qual o tamando do vetor? ");
+  scanf("%d", &MAX);
+    
+  printf("\n----- Preencha o vetor -----\n");
+  
+  for(i = 1; i<MAX+1; i++){
+    printf("Digite um valor: ");
+    scanf("%d", &vet[i]);
+  }
+  
+  quicksort(vet, 0, MAX);
+
+  for (i = 0; i < 20; i++) {
+    printf("%d ", vet[i]);
+  }
+return 0;
+}
